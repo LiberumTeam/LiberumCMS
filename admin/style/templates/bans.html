@@ -1,0 +1,34 @@
+<h2>{$lang.bans}</h2>
+{if isset($msg)}<p>{$msg}</p>{/if}
+<h3>{$lang.add}</h3>
+<form action="" method="post">
+	<p>
+		<label for="fip">{$lang.ip}:</label>
+		<input type="text" name="ip" id="fip">
+	</p>
+	<p>
+		<label for="freason">{$lang.reason}:</label>
+		<input type="text" name="reason" id="freason">
+	</p>
+	<p>
+		<input type="submit" name="ban" value="{$lang.add}">
+	</p>
+</form>
+<h3>{$lang.list}</h3>
+<table>
+	<tr class="thead">
+		<td colspan="3"><b>{$lang.bans}</b></td>
+	</tr>
+	<tr class="thead2">
+		<td>{$lang.ip}</td>
+		<td>{$lang.reason}</td>
+		<td>{$lang.action}</td>
+	</tr>
+	{foreach $bans as $ban}
+	<tr>
+		<td>{$ban.ip}</td>
+		<td>{$ban.reason}</td>
+		<td><a href="{$url}bans/unban/{$ban.bid}"><img src="{$icons}accept.png" alt="{$lang.unban}"></a></td>
+	</tr>
+	{/foreach}
+</table>

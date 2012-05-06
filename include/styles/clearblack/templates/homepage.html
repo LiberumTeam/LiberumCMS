@@ -1,0 +1,44 @@
+<h2>{if isset($news.0) && $news.0.one}{$news.0.title}{else}{$lang.articles}{/if}</h2>
+{if isset($category)}
+<div class="post-parent-info">
+	<h3>{$category.category_title}</h3>
+	<p>
+		{$category.category_description}
+	</p>
+</div>
+{/if}
+{if isset($author)}
+<div class="post-parent-info">
+	<h3>{$author.username}</h3>
+	<p>
+		{$author.user_description}
+	</p>
+</div>
+{/if}
+{foreach $news as $n}
+	{if isset($n.title)}
+    <div class="news">
+        <h3 class="news_title"><a href="{$cfg.url}{$furl}{$cfg.articleurl}/{$n.url}">{$n.title}</a></h3>
+        <div class="news_info">
+			{$lang.added_by} <a href="{$cfg.url}{$furl}{$cfg.authorurl}/{$n.username}"><b>{$n.styleusername}</b></a>
+			{$lang.news_added_day} <b>{$n.date}</b>
+			{$lang.in_category} <a href="{$cfg.url}{$furl}{$cfg.categoryurl}/{$n.category_url}"><b>{$n.category_title}</b></a>
+		</div>
+        <div class="news_body">
+            <p>
+				{$n.content}
+			</p>
+        </div>
+    </div>
+	{/if}
+{foreachelse}
+	{$lang.no_data}
+{/foreach}
+<div class="pagin">
+	{if $thispage > 1}
+		<a href="?page={$thispage - 1}" class="prev">{$lang.prevpage}</a>
+	{/if}
+	{if $nextpage}
+		<a href="?page={$thispage + 1}" class="next">{$lang.nextpage}</a>
+	{/if}
+</div>

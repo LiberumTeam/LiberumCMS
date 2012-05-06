@@ -1,0 +1,15 @@
+        </div>
+	</div>
+    <div id="sidebar">
+		{foreach $sidebars as $sidebar}
+			<div class="sidebar">
+				<div class="inner">
+					<h2>{$sidebar.sidebar_title}</h2>
+					<p>
+						{$sidebar.sidebar_content}
+					</p>
+				</div>
+			</div>
+		{/foreach}
+    </div>
+</div>

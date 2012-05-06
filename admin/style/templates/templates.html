@@ -1,0 +1,23 @@
+<h2>{$lang.templates}</h2>
+<p>
+	{if isset($msg)}{$msg}<br>{/if}
+	<table>
+		<tr class="thead">
+			<td colspan="3"><b>{$lang.templates}</b></td>
+		</tr>
+		<tr class="thead2">
+			<td>{$lang.name}</td>
+			<td>{$lang.author}</td>
+			<td>{$lang.action}</td>
+		</tr>
+		{foreach $templates as $template}
+			<tr{if $template.folder == $cfg.style} class="tthis"{/if}>
+				<td>{$template.fullname}{if $template.folder == $cfg.style} <b>({$lang.current})</b>{/if}</td>
+				<td>{$template.author}</td>
+				<td><a href="{$url}templates/set/{$template.folder}">
+					<img src="{$icons}/layout.png" alt="{$lang.set}">
+				</a></td>
+			</tr>
+		{/foreach}
+	</table>
+</p>

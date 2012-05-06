@@ -1,0 +1,35 @@
+<h2>{$lang.edit}</h2>
+{if !empty($msg)}{$msg}{/if}
+<form action="" method="post">
+	<p>
+		<label for="ftitle">{$lang.title}:</label>
+		<input type="text" name="title" id="ftitle" value="{$post.title}">
+	</p>
+	<p>
+		<label for="fformatting">{$lang.formatting}:</label>
+		<select name="formatting" id="fformatting">
+			<option value="bbcode"{if $post.formatting == 'bbcode'} selected="selected"{/if}>BBCode</option>
+			<option value="html"{if $post.formatting == 'html'} selected="selected"{/if}>HTML</option>
+		</select>
+	</p>
+	<p>
+		<label for="fcomments">{$lang.comments}:</label>
+		<select name="comments" id="fcomments">
+			<option value="1"{if $post.comments == 1} selected="selected"{/if}>{$lang.yes}</option>
+			<option value="0"{if $post.comments == 0} selected="selected"{/if}>{$lang.no}</option>
+		</select>
+	</p>
+	<p>
+		<label>{$lang.bonus_options}:</label><br>
+		<input type="checkbox" name="accept" value="1" id="faccept"{if $post.published == 1} checked="checked"{/if}> <label for="faccept">{$lang.accept_now}</label><br>
+		<input type="checkbox" name="timeupdate" value="1" id="ftimeupdate"> <label for="timeupdate">{$lang.timeupdate}</label>
+	</p>
+	<p>
+		<div id="fcontentd"><textarea id="fcontent" name="content" cols="1" rows="1" class="editor">{$post.content}</textarea></div>
+		<textarea id="fcontent2" disabled="disabled" name="content" cols="60" rows="20" style="display: none;">{$post.content}</textarea>
+	</p>
+	<p>
+		<input type="submit" value="{$lang.edit}!" name="page_edit">
+		<label>{$lang.or} <a href="{$url}posts/pages/">{$lang.back}</a></label>
+	</p>
+</form>

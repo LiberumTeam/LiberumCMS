@@ -1,0 +1,84 @@
+<div id="nav">
+	<ul>
+		<li>
+			<h3>{$lang.general}</h3>
+			<ul>
+				<li><a href="{$url}" original-title="{$lang.menu.info}"{if empty($urlparam.1)} class="active"{/if}><img src="{$icons}info.png" alt="">
+				{$lang.information}</a></li>
+				<li><a href="{$url}updates" original-title="{$lang.menu.update}"{if $urlparam.1 == 'updates'} class="active"{/if}><img src="{$icons}update.png" alt="">
+				{$lang.updates}</a></li>
+				<li><a href="{$url}credits" original-title="{$lang.menu.authors}"{if $urlparam.1 == 'credits'} class="active"{/if}><img src="{$icons}author.png" alt="">
+				{$lang.authors_of_lcms}</a></li>
+			</ul>
+		</li>
+		<li>
+			<h3>{$lang.system}</h3>
+			<ul>
+				<li><a href="{$url}config" original-title="{$lang.menu.config}"{if $urlparam.1 == 'config'} class="active"{/if}><img src="{$icons}config.png" alt="">
+				{$lang.config}</a></li>
+				<li><a href="{$url}templates" original-title="{$lang.menu.templates}"{if $urlparam.1 == 'templates'} class="active"{/if}><img src="{$icons}layout.png" alt="">
+				{$lang.templates}</a></li>
+				<li><a href="{$url}langs" original-title="{$lang.menu.langs}"{if $urlparam.1 == 'langs'} class="active"{/if}><img src="{$icons}lang.png" alt="">
+				{$lang.langs}</a></li>
+				<li><a href="{$url}bans" original-title="{$lang.menu.bans}"{if $urlparam.1 == 'bans'} class="active"{/if}><img src="{$icons}ban.png" alt="">
+				{$lang.bans}</a></li>
+			</ul>
+		</li>
+		<li>
+			<h3>{$lang.posts}</h3>
+			<ul>
+				<li><a href="{$url}posts/news/" original-title="{$lang.menu.news}"{if $urlparam.2 == 'news'} class="active"{/if}><img src="{$icons}news.png" alt="">
+				{$lang.manage_news}</a></li>
+				<li><a href="{$url}posts/pages/" original-title="{$lang.menu.pages}"{if $urlparam.2 == 'pages'} class="active"{/if}><img src="{$icons}page.png" alt="">
+				{$lang.manage_pages}</a></li>
+				<li><a href="{$url}posts/comments/" original-title="{$lang.menu.comments}"{if $urlparam.2 == 'comments'} class="active"{/if}><img src="{$icons}comment.png" alt="">
+				{$lang.manage_comments}</a></li>
+				<li><a href="{$url}posts/categories/" original-title="{$lang.menu.cats}"{if $urlparam.2 == 'categories'} class="active"{/if}><img src="{$icons}category.png" alt="">
+				{$lang.manage_categories}</a></li>
+			</ul>
+		</li>
+		<li>
+			<h3>{$lang.users}</h3>
+			<ul>
+				<li><a href="{$url}profile/" original-title="{$lang.menu.profile}"{if $urlparam.1 == 'profile'} class="active"{/if}><img src="{$icons}user.png" alt="">
+				{$lang.profile}</a></li>
+				<li><a href="{$url}users/" original-title="{$lang.menu.users}"{if $urlparam.1 == 'users'} class="active"{/if}><img src="{$icons}user.png" alt="">
+				{$lang.manage_users}</a></li>
+				<li><a href="{$url}ranks/" original-title="{$lang.menu.roles}"{if $urlparam.1 == 'ranks'} class="active"{/if}><img src="{$icons}rank.png" alt="">
+				{$lang.manage_ranks}</a></li>
+			</ul>
+		</li>
+		<li>
+			<h3>{$lang.layout}</h3>
+			<ul>
+				<li><a href="{$url}sidebars/" original-title="{$lang.menu.sidebars}"{if $urlparam.1 == 'sidebars'} class="active"{/if}><img src="{$icons}sidebar.png" alt="">
+				{$lang.sidebars}</a></li>
+				<li><a href="{$url}menu/" original-title="{$lang.menu.menu}"{if $urlparam.1 == 'menu'} class="active"{/if}><img src="{$icons}menu.png" alt="">
+				{$lang.menus}</a></li>
+				<li><a href="{$url}templateseditor/" original-title="{$lang.menu.editor}"{if $urlparam.1 == 'templateseditor'} class="active"{/if}><img src="{$icons}edit.png" alt="">
+				{$lang.templateseditor}</a></li>
+			</ul>
+		</li>
+		<li>
+			<h3>{$lang.modules}</h3>
+			<ul>
+				<li><a href="{$url}modules/rss/" original-title="{$lang.menu.module_rss}"{if $urlparam.2 == 'rss'} class="active"{/if}><img src="{$icons}rss.png" alt="">
+				{$lang.rssmodule}</a></li>
+				<li><a href="{$url}modules/googleanalytics/" original-title="{$lang.menu.googleanalytics}"{if $urlparam.2 == 'googleanalytics'} class="active"{/if}><img src="{$icons}googleanalytics.png" alt="">
+				{$lang.googleanalytics}</a></li>
+			</ul>
+		</li>
+		<li>
+			<h3>{$lang.maintenance}</h3>
+			<ul>
+				<li><a href="{$url}database/" original-title="{$lang.menu.database}"{if $urlparam.1 == 'database'} class="active"{/if}><img src="{$icons}db.png" alt="">
+				{$lang.database}</a></li>
+			</ul>
+		</li>
+        <li>
+            <h3 id="bottom">&nbsp;</h3>
+        </li>
+	</ul>
+</div>
+<div id="content">
+	<div class="inner">

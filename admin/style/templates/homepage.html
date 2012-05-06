@@ -1,0 +1,118 @@
+<h2>{$lang.info}</h2>
+<br>
+<div class="float">
+	<div class="column left">
+		<table>
+			<tr class="thead">
+				<td colspan="2"><b>{$lang.server}</b></td>
+			</tr>
+			<tr>
+				<td class="twidth"><b>{$lang.version} LiberumCMS</b></td>
+				<td>{$version} ({$versionint}) ({$lang.codename}: {$versioncodename}) <b><a href="{$url}updates">{$lang.check_updates}</a></b></td>
+			</tr>
+			<tr>
+				<td class="twidth"><b>{$lang.os}</b></td>
+				<td>{$os}</td>
+			</tr>
+			<tr>
+				<td class="twidth"><b>{$lang.httpserver}</b></td>
+				<td>{$httpd}</td>
+			</tr>
+			<tr>
+				<td class="twidth"><b>{$lang.version} PHP</b></td>
+				<td>{$phpver}</td>
+			</tr>
+			<tr>
+				<td class="twidth"><b>{$lang.version} MySQL</b></td>
+				<td>{$mysqlver}</td>
+			</tr>
+		</table>
+	</div>
+	<div class="column right">
+		<table>
+			<tr class="thead">
+				<td colspan="2"><b>{$lang.stats}</b></td>
+			</tr>
+			<tr>
+				<td class="twidth"><b>{$lang.pages}</b></td>
+				<td>{$stats.pages}</td>
+			</tr>
+			<tr>
+				<td class="twidth"><b>{$lang.news}</b></td>
+				<td>{$stats.news}</td>
+			</tr>
+			<tr>
+				<td class="twidth"><b>{$lang.categories}</b></td>
+				<td>{$stats.categories}</td>
+			</tr>
+			<tr>
+				<td class="twidth"><b>{$lang.users}</b></td>
+				<td>{$stats.users}</td>
+			</tr>
+			<tr>
+				<td class="twidth"><b>{$lang.comments}</b></td>
+				<td>{$stats.comments}</td>
+			</tr>
+		</table>
+	</div>
+</div>
+<br><br>
+<div class="float">
+	<div class="column left">
+		<table>
+			<tr class="thead">
+				<td><b>{$lang.last_comments}</b></td>
+			</tr>
+			{foreach $lastcomments as $comment}
+			<tr>
+				<td>
+					<b>{$comment.author}</b> {if $comment.author_type == 'guest'}({$lang.guest}){/if}
+					{$lang.in} <a class="tooltip" href="{$portal_url}{$furl}{$cfg.articleurl}/{$comment.url}#comment-{$comment.comment_id}" original-title="{$comment.comment_content}">{$comment.title}</a>
+					<a class="tooltip" href="{$url}posts/comments/delete/{$comment.comment_id}?homepage=1" original-title="{$lang.delete}"><img src="{$icons}delete_comment.png"></a>
+				</td>
+			</tr>	
+			{/foreach}
+		</table>
+	</div>
+	<div class="column right">
+		<table>
+			<tr class="thead">
+				<td colspan="2"><b>{$lang.info}</b></td>
+			</tr>
+			<tr>
+				<td class="twidth"><b>{$lang.style}</b></td>
+				<td>{$styleinfo.fullname}</td>
+			</tr>
+			<tr>
+				<td class="twidth"><b>{$lang.lang}</b></td>
+				<td>{$lang.cfg_fullname}</td>
+			</tr>
+		</table>
+	</div>
+</div>
+<br><br>
+<div>
+	<div style="overflow: scroll; height: 200px;">
+		<table>
+			<tr class="thead">
+				<td colspan="3"><b>{$lang.logs}</b></td>
+			</tr>
+			<tr class="thead2">
+				<td>{$lang.date}</td>
+				<td>{$lang.user}</td>
+				<td>{$lang.action}</td>
+			</tr>
+			{foreach $logs as $log}
+			<tr>
+				<td class="twidth">{$log.time}</td>
+				<td class="twidth">{$log.user}</td>
+				<td>{$log.action}</td>
+			</tr>
+			{foreachelse}
+			<tr>
+				<td colspan="3">{$lang.no_data}</td>
+			</tr>
+			{/foreach}
+		</table>
+	</div>
+</div>

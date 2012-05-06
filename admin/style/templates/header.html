@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="{$lang.cfg_codename}">
+<head>
+	<meta charset="{$lang.cfg_charset}">
+	<link rel="stylesheet" href="{$style}index.css">
+	<link rel="stylesheet" href="{$style}tipsy.css">
+	<link rel="stylesheet" type="text/css" href="{$style}js/editor/skins/markitup/style.css">
+	<link rel="stylesheet" type="text/css" href="{$style}js/editor/sets/default/style.css">
+	<link rel="stylesheet" type="text/css" href="{$js}jquery.jqplot.css">
+	<link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+	<link rel="icon" href="{$images}favicon.ico">
+	<title>LiberumACP</title>
+</head>
+<body>
+	{if $user}
+	<div id="head">
+		<img src="{$images}icon.png" alt="">
+        {$lang.hello} <b>{$user.username}</b>! -
+        <a href="{$portal_url}" class="navno">{$lang.back_to} "{$cfg.sitetitle}"</a> -
+		<a href="{$url}logout" class="navno">{$lang.logout}</a>
+	</div>
+	{/if}
+	<div id="box">

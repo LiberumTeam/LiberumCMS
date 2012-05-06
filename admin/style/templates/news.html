@@ -1,0 +1,44 @@
+<h2>{$lang.news}</h2>
+{if !empty($msg)}{$msg}{/if}
+<br>
+<div>
+	<a href="{$url}posts/news/add/" class="button">{$lang.add}</a><br><br>
+	<table>
+		<tr class="thead">
+			<td colspan="7"><b>{$lang.news}</b></td>
+		</tr>
+		<tr class="thead2">
+			<td>{$lang.title}</td>
+			<td>{$lang.author}</td>
+			<td>{$lang.category}</td>
+			<td>{$lang.date}</td>
+			<td>{$lang.published}</td>
+			<td>{$lang.comments}</td>
+			<td>{$lang.action}</td>
+		</tr>
+		{foreach $news as $post}
+		<tr>
+			<td><a href="{$portal_url}{$furl}{$cfg.articleurl}/{$post.url}">{$post.title}</a></td>
+			<td class="twidth"><b>{$post.styleusername}</b> [#{$post.uid}]</td>
+			<td class="twidth">{$post.category_title} [#{$post.cid}]</td>
+			<td class="twidth">{$post.date}</td>
+			<td class="twidth">{if $post.published == 1}{$lang.yes}{else}{$lang.no}{/if}</td>
+			<td class="twidth">{if $post.comments == 1}{$lang.yes}{else}{$lang.no}{/if}</td>
+			<td class="buttons">
+				{if $post.published == 1}
+					<a href="{$url}posts/news/deaccept/{$post.pid}?page={$thispage}" original-title="{$lang.depublish}"><img src="{$icons}down.png"></a>
+				{else}
+					<a href="{$url}posts/news/accept/{$post.pid}?page={$thispage}" original-title="{$lang.publish}"><img src="{$icons}up.png"></a>
+				{/if}
+				<a href="{$url}posts/news/edit/{$post.pid}" original-title="{$lang.edit}"><img src="{$icons}edit.png"></a>
+				<a href="{$url}posts/news/delete/{$post.pid}?page={$thispage}" original-title="{$lang.delete}"><img src="{$icons}delete.png"></a>
+			</td>
+		</tr>
+		{/foreach}
+	</table>
+	<div class="pagin">
+		<hr>
+		{if $thispage > 1}<a class="prev" href="{$url}posts/news/?page={$thispage - 1}">{$lang.prevpage}</a>{/if}
+		{if $nextpage}<a class="next" href="{$url}posts/news/?page={$thispage + 1}">{$lang.nextpage}</a>{/if}
+	</div>
+</div>

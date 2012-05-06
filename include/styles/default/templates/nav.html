@@ -1,0 +1,10 @@
+<ul id="nav">
+	<li><a href="{$url}">{$lang.homepage}</a></li>
+	{foreach $menu as $element}
+		{if $element.type == 'page'}
+			<a href="{$url}{$furl}{$element.page.url}">{$element.name}</a>
+		{else}
+			<a href="{$element.url}">{$element.name}</a>
+		{/if}
+	{/foreach}
+</ul>

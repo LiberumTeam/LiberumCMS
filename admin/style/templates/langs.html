@@ -1,0 +1,23 @@
+<h2>{$lang.langs}</h2>
+<p>
+	{if isset($msg)}{$msg}<br>{/if}
+	<table>
+		<tr class="thead">
+			<td colspan="3"><b>{$lang.langs}</b></td>
+		</tr>
+		<tr class="thead2">
+			<td>{$lang.name}</td>
+			<td>{$lang.author}</td>
+			<td>{$lang.action}</td>
+		</tr>
+		{foreach $langs as $l}
+			<tr{if $l.file == $cfg.lang} class="tthis"{/if}>
+				<td>{$l.cfg_fullname} ({$l.cfg_codename}){if $l.file == $cfg.lang} <b>({$lang.current})</b>{/if}</td>
+				<td>{$l.cfg_author}</td>
+				<td><a href="{$url}langs/set/{$l.file}">
+					<img src="{$icons}/lang.png" alt="{$lang.set}">
+				</a></td>
+			</tr>
+		{/foreach}
+	</table>
+</p>

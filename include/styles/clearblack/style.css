@@ -1,0 +1,41 @@
+/* --Reset */
+html, body, h1, h2, h3, h4, h5, h6, h7 { margin: 0; padding: 0; }
+/* --Blocks */
+body { color: #333; font: 14px Helvetica, Arial, serif; }
+#header, #nav, #box, #footer { margin: 0 auto; width: 1000px; padding: 10px; }
+#box{ overflow: auto; }
+#content { float: left; width: 780px; }
+#sidebar { float: right; width: 220px; }
+.sidebar, .post-parent-info { background: #eee; box-shadow: 0 0 3px #000; }
+.post-parent-info { padding: 10px; margin-bottom: 10px; } 
+h2 { margin: 15px 0 10px 0; border-bottom: 1px dashed #ccc; font: 22px Tahoma; }
+h2:first-of-type { margin-top: 0; }
+.inner { padding: 15px; }
+#footer { border-top: 1px solid #ccc; padding-top: 10px; }
+.sidebar { margin: 20px 0; }
+.sidebar:first-of-type { margin-top: 0; } 
+/* --Nav */
+#nav { list-style: none; background: url('images/nav.png'); padding: 0; border-radius: 5px; }
+#nav li, #nav li a { display: inline-block; }
+#nav a, #nav a:link, #nav a:visited { padding: 15px 20px; color: #eee; text-decoration: none; }
+#nav a:hover, #nav a:focus { background: rgba(255, 255, 255, 0.2); }
+/* --News */
+.news { border-bottom: 1px dashed #ccc; margin-bottom: 20px; }
+.news_title { font-size: 19px; }
+.news_info, .comment-info { font-size: 12px; }
+.comment-info { margin-bottom: 0; }
+.comment { background: #efefef; border: 2px solid #ccc; padding: 5px; margin: 10px 0 10px 0; }
+.comment-by-author { background: #fffdc3; }
+/* --Pagin */
+.pagin { overflow: auto; }
+.prev { float: left; }
+.next { float: right; }
+/* --Forms */
+input, select, textarea { min-width: 200px; padding: 5px; border: 1px solid #ccc; border-radius: 5px; }
+input[type="radio"] { min-width: 0px; }
+textarea { width: 100%; }
+#comments textarea { height: 100px; }
+input[type="submit"] { cursor: pointer; }
+/* --Helpers */
+a, a:link, a:visited { color: #118b14; text-decoration: none; }
+a:hover, a:focus { text-decoration: underline; }

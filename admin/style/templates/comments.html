@@ -1,0 +1,33 @@
+<h2>{$lang.comments}</h2>
+{if !empty($msg)}{$msg}{/if}
+<br>
+<div>
+	<table>
+		<tr class="thead">
+			<td colspan="5"><b>{$lang.comments}</b></td>
+		</tr>
+		<tr class="thead2">
+			<td>{$lang.post}</td>
+			<td>{$lang.content}</td>
+			<td>{$lang.author}</td>
+			<td>{$lang.date}</td>
+			<td>{$lang.action}</td>
+		</tr>
+		{foreach $comments as $comment}
+		<tr>
+			<td><a href="{$portal_url}{$furl}{$cfg.articleurl}/{$comment.url}">{$comment.title} [#{$comment.pid}]</a></td>
+			<td>{$comment.content}</td>
+			<td class="twidth"><b>{$comment.author}</b> {if $comment.author_type == 'user'}({$lang.user}: #{$comment.author_id}){else}({$comment.author_ip}){/if}</td>
+			<td class="twidth">{$comment.comment_date}</td>
+			<td class="buttons twidth">
+				<a href="{$url}posts/comments/delete/{$comment.comment_id}?page={$thispage}" original-title="{$lang.delete}"><img src="{$icons}delete.png"></a>
+			</td>
+		</tr>
+		{/foreach}
+	</table>
+	<div class="pagin">
+		<hr>
+		{if $thispage > 1}<a class="prev" href="{$url}posts/comments/?page={$thispage - 1}">{$lang.prevpage}</a>{/if}
+		{if $nextpage}<a class="next" href="{$url}posts/comments/?page={$thispage + 1}">{$lang.nextpage}</a>{/if}
+	</div>
+</div>

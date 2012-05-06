@@ -1,0 +1,33 @@
+<h2>{$lang.users}</h2>
+{if !empty($msg)}{$msg}{/if}
+<br>
+<div>
+	<a href="{$url}users/add/" class="button">{$lang.add}</a><br><br>
+	<table>
+		<tr class="thead">
+			<td colspan="5"><b>{$lang.users}</b></td>
+		</tr>
+		<tr class="thead2">
+			<td>{$lang.nick}</td>
+			<td>{$lang.group}</td>
+			<td>{$lang.description}</td>
+			<td>{$lang.action}</td>
+		</tr>
+		{foreach $users as $user}
+		<tr>
+			<td class="twidth"><b>{$user.styleusername}</b> [#{$user.uid}]</td>
+			<td class="twidth"><b>{$user.stylegroup}</b> [#{$user.gid}]</td>
+			<td>{$user.user_description}</td>
+			<td class="twidth buttons">
+				<a href="{$url}users/edit/{$user.uid}" original-title="{$lang.edit}"><img src="{$icons}edit.png"></a>
+				<a href="{$url}users/delete/{$user.uid}" original-title="{$lang.delete}"><img src="{$icons}delete.png"></a>
+			</td>
+		</tr>
+		{/foreach}
+	</table>
+	<div class="pagin">
+		<hr>
+		{if $thispage > 1}<a class="prev" href="{$url}users/?page={$thispage - 1}">{$lang.prevpage}</a>{/if}
+		{if $nextpage}<a class="next" href="{$url}users/?page={$thispage + 1}">{$lang.nextpage}</a>{/if}
+	</div>
+</div>

@@ -1,0 +1,20 @@
+<h2>{$lang.edit}</h2>
+{if !empty($msg)}{$msg}{/if}
+<form action="" method="post">
+	<p>
+		<label for="ftitle">{$lang.title}: </label>
+		<input type="text" name="title" id="ftitle" value="{$category.category_title}">
+	</p>
+	<p>
+		<label for="furl">{$lang.niceurl}: </label>
+		<input type="text" name="url" id="furl" value="{$category.category_url}">
+	</p>
+	<p>
+		<label for="fdesc">{$lang.description} (HTML):<br><br></label>
+		<textarea name="desc" id="fdesc">{$category.category_description}</textarea>
+	</p>
+	<p>
+		<input type="submit" value="{$lang.edit}" name="category_edit">
+		<label>{$lang.or} <a href="{$url}posts/categories/">{$lang.back}</a></label>
+	</p>
+</form>

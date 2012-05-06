@@ -1,0 +1,32 @@
+<h2>{$lang.add}</h2>
+{if !empty($msg)}{$msg}{/if}
+<form action="" method="post">
+	<p>
+		<label for="fnick">{$lang.username}:</label>
+		<input type="text" name="nick" id="fnick">
+	</p>
+	<p>
+		<label for="fpassword">{$lang.password}:</label>
+		<input type="password" name="password" id="fpassword" autocomplete="off">
+	</p>
+	<p>
+		<label for="femail">{$lang.email}:</label>
+		<input type="email" name="email" id="femail">
+	</p>
+	<p>
+		<label for="fgroup">{$lang.group}:</label>
+		<select name="group" id="fgroup">
+			{foreach $groups as $group}
+				<option value="{$group.gid}">{$group.name}</option>
+			{/foreach}
+		</select>
+	</p>
+	<p>
+		<label for="fdescription">{$lang.description}:</label><br><br>
+		<textarea id="fdescription" name="description" cols="1" rows="1"></textarea>
+	</p>
+	<p>
+		<input type="submit" value="{$lang.add}" name="user_add">
+		<label>{$lang.or} <a href="{$url}users/">{$lang.back}</a></label>
+	</p>
+</form>

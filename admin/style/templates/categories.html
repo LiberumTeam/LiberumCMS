@@ -1,0 +1,31 @@
+<h2>{$lang.categories}</h2>
+{if !empty($msg)}{$msg}{/if}
+<br>
+<div>
+	<a href="{$url}posts/categories/add/" class="button">{$lang.add}</a><br><br>
+	<table>
+		<tr class="thead">
+			<td colspan="5"><b>{$lang.categories}</b></td>
+		</tr>
+		<tr class="thead2">
+			<td>{$lang.title}</td>
+			<td>{$lang.description}</td>
+			<td>{$lang.action}</td>
+		</tr>
+		{foreach $categories as $category}
+		<tr>
+			<td><a href="{$portal_url}{$furl}{$cfg.articleurl}/{$category.category_url}">{$category.category_title} [#{$category.cid}]</a></td>
+			<td>{$category.category_description}</td>
+			<td class="buttons twidth">
+				<a href="{$url}posts/categories/edit/{$category.cid}" original-title="{$lang.edit}"><img src="{$icons}edit.png"></a>
+				<a href="{$url}posts/categories/delete/{$category.cid}?page={$thispage}" original-title="{$lang.delete}"><img src="{$icons}delete.png"></a>
+			</td>
+		</tr>
+		{/foreach}
+	</table>
+	<div class="pagin">
+		<hr>
+		{if $thispage > 1}<a class="prev" href="{$url}posts/categories/?page={$thispage - 1}">{$lang.prevpage}</a>{/if}
+		{if $nextpage}<a class="next" href="{$url}posts/categories/?page={$thispage + 1}">{$lang.nextpage}</a>{/if}
+	</div>
+</div>

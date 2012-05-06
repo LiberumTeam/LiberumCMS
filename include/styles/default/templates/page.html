@@ -1,0 +1,79 @@
+<h2>{$page.title}</h2>
+<div class="news">
+    <div class="news_body">
+    	{if $page.type == 'news'} 	
+        <div class="news_info">
+			{$lang.added_by} <a href="{$cfg.url}{$furl}{$cfg.authorurl}/{$page.username}"><b>{$page.styleusername}</b></a>
+			{$lang.news_added_day} <b>{$page.date}</b>
+			{$lang.in_category} <a href="{$cfg.url}{$furl}{$cfg.categoryurl}/{$page.category_url}"><b>{$page.category_title}</b></a>
+		</div>
+    	{/if}
+		<p>
+			{$page.content}
+		</p>
+    </div>
+</div>
+<div id="comments">
+	{if $page.comments == 1}
+		<h3>{$lang.add_comment}</h3>
+		{if !empty($msg)} <p><b>{$msg}</b></p>{/if}
+		{if $user}
+			<form action="" method="post">
+				<p>
+					<label>{$lang.you_added_as}: <b>Thelleo</b></label>
+				</p>
+				<p>
+					<label for="fcontent">{$lang.content} ({$lang.bbcode_allowed}):<br></label>
+					<textarea cols="60" rows="10" name="content"></textarea>
+				</p>
+				<p>
+					<input type="submit" name="comment" value="{$lang.add}">
+				</p>
+			</form>
+		{else}
+			<form action="" method="post">
+				<p>
+					<label for="fnick">{$lang.nick}:</label>
+					<input type="text" name="nick" id="fnick">
+				</p>
+				<p>
+					<label for="femail">{$lang.email} ({$lang.not_showed}):</label>
+					<input type="text" name="email" id="femail">
+				</p>
+				<p>
+					<label for="fcontent">{$lang.content} ({$lang.bbcode_allowed}):<br></label>
+					<textarea cols="60" rows="10" name="content"></textarea>
+				</p>
+				<p>
+					<input type="submit" name="comment" value="{$lang.add}">
+					<br>
+				</p>
+			</form>
+		{/if}
+		<h3>{$lang.comments} ({$commentscount})</h3>
+		{foreach $comments as $comment}
+		<div id="comment-{$comment.comment_id}" class="comment{if $comment.author_id == $page.author_id} comment-by-author{/if}{if $comment.author_type == 'user'} comment-by-user{/if}">
+			<b>{$comment.author}:</b>
+			<p>
+				{$comment.content}
+			</p>
+			<p class="comment-info">
+				<b>{$lang.added_by_day}:</b> {$comment.comment_date}
+			</p>
+		</div>
+		{/foreach}
+		<div class="pagin">
+			{if $thispage > 1}
+				<a href="?page={$thispage - 1}" class="prev">{$lang.prevpage}</a>
+			{/if}
+			{if $nextpage}
+				<a href="?page={$thispage + 1}" class="next">{$lang.nextpage}</a>
+			{/if}
+		</div>
+	{else}
+		<h3>{$lang.comments}</h3>
+		<p>
+			{$lang.comments_disabled}
+		</p>
+	{/if}
+</div>

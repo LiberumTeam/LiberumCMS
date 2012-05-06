@@ -1,0 +1,74 @@
+<h2>{$lang.config}</h2>
+<br>
+{if isset($msg)}{$msg}<br>{/if}
+<form action="" method="post">
+	<fieldset>
+		<legend>{$lang.general}</legend>
+		<p>
+			<label for="ftitle">{$lang.sitetitle}:</label>
+			<input type="text" name="sitetitle" id="fsitetitle" value="{$cfg.sitetitle}">
+		</p>
+		<p>
+			<label for="fdescription">{$lang.description}:</label>
+			<input type="text" name="description" id="fdescription" value="{$cfg.description}">
+		</p>
+		<p>
+			<label for="fkeywords">{$lang.keywords}:</label>
+			<input type="text" name="keywords" id="fkeywords" value="{$cfg.keywords}">
+		</p>
+		<p>
+			<label for="furl">{$lang.url}:</label>
+			<input type="text" name="url" id="furl" value="{$cfg.url}">
+		</p>
+	</fieldset>
+	<fieldset>
+		<legend>{$lang.seo}</legend>
+		<p>
+			<label for="ffurls">{$lang.furls}:</label>
+			<select class="fsmall" name="furls" id="ffurls">
+				<option{if $cfg.furls == 1} selected="selected"{/if} value="1">{$lang.yes}</option>
+				<option{if $cfg.furls == 0} selected="selected"{/if} value="0">{$lang.no}</option>
+			</select>
+		</p>
+		<p>
+			<label for="farticleurl">{$lang.articleurl}:</label>
+			<b>{$cfg.url}{$furl}</b>
+			<input class="fsmall" type="text" name="articleurl" id="farticleurl" value="{$cfg.articleurl}">
+			<b>/some-title/</b>
+		</p>
+		<p>
+			<label for="fauthorurl">{$lang.authorurl}:</label>
+			<b>{$cfg.url}{$furl}</b>
+			<input class="fsmall" type="text" name="authorurl" id="fauthorurl" value="{$cfg.authorurl}">
+			<b>/some-auhtor/</b>
+		</p>
+		<p>
+			<label for="fcategoryurl">{$lang.categoryurl}:</label>
+			<b>{$cfg.url}{$furl}</b>
+			<input class="fsmall" type="text" name="categoryurl" id="fcategoryurl" value="{$cfg.categoryurl}">
+			<b>/some-category/</b>
+		</p>
+	</fieldset>
+	<fieldset>
+		<legend>{$lang.posts}</legend>
+		<p>
+			<label for="fpagelimit">{$lang.postsperpage}:</label>
+			<input class="fsmall" type="text" name="pagelimit" id="fpagelimit" value="{$cfg.pagelimit}">
+		</p>
+		<p>
+			<label for="fcommentspagelimit">{$lang.commentsperpage}:</label>
+			<input class="fsmall" type="text" name="commentspagelimit" id="fcommentspagelimit" value="{$cfg.commentspagelimit}">
+		</p>
+		<p>
+			<label for="fcomment_max_length">{$lang.commentsmax}:</label>
+			<input class="fsmall" type="text" name="comment_max_length" id="fcomment_max_length" value="{$cfg.comment_max_length}">
+		</p>
+		<p>
+			<label for="fcomment_wait_time">{$lang.commentwaittime}:</label>
+			<input class="fsmall" type="text" name="comment_wait_time" id="fcomment_wait_time" value="{$cfg.comment_wait_time}"> ({$lang.onlyguest})
+		</p>
+	</fieldset>
+	<p class="configform">
+		<input type="submit" name="configformsubmit" value="{$lang.change}">
+	</p>
+</form>

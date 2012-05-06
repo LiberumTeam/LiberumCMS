@@ -1,0 +1,30 @@
+<h2>{$lang.updates}</h2>
+<p>
+	{if $ver == FALSE}
+	<div class="error">
+		{$lang.cant_check_update}
+	</div>
+	{else}
+	<table>
+		<tr class="thead">
+			<td colspan="3"><b>{$lang.updates}</b></td>
+		</tr>
+		<tr class="thead2">
+			<td>{$lang.youversion}</td>
+			<td>{$lang.cmsversion}</td>
+			<td>{$lang.result}</td>
+		</tr>
+		<tr>
+			<td>{$version} ({$versionint})</td>
+			<td>{$ver.version} ({$ver.versionint})</td>
+			<td>
+				{if $versionint == $ver.versionint || $versionint > $ver.versionint}
+					<span style="color: green;">{$lang.you_cms_is_update}</span>
+				{else}
+					<span style="color: red;">{$lang.you_cms_need_update}</span>
+				{/if}
+			</td>
+		</tr>
+	</table>
+	{/if}
+</p>

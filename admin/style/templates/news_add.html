@@ -1,0 +1,42 @@
+<h2>{$lang.add}</h2>
+{if !empty($msg)}{$msg}{/if}
+<form action="" method="post">
+	<p>
+		<label for="ftitle">{$lang.title}:</label>
+		<input type="text" name="title" id="ftitle">
+	</p>
+	<p>
+		<label for="fcategory">{$lang.category}:</label>
+		<select name="category" id="fcategory">
+			{foreach $categories as $category}
+				<option value="{$category.cid}">{$category.category_title} [#{{$category.cid}}]</option>
+			{/foreach}
+		</select>
+	</p>
+	<p>
+		<label for="fformatting">{$lang.formatting}:</label>
+		<select name="formatting" id="fformatting">
+			<option value="bbcode">BBCode</option>
+			<option value="html">HTML</option>
+		</select>
+	</p>
+	<p>
+		<label for="fcomments">{$lang.comments}:</label>
+		<select name="comments" id="fcomments">
+			<option value="1">{$lang.yes}</option>
+			<option value="0">{$lang.no}</option>
+		</select>
+	</p>
+	<p>
+		<label>{$lang.bonus_options}:</label><br>
+		<input type="checkbox" name="accept" value="1" id="faccept"> <label for="faccept">{$lang.accept_now}</label>
+	</p>
+	<p>
+		<div id="fcontentd"><textarea id="fcontent" name="content" cols="1" rows="1" class="editor"></textarea></div>
+		<textarea id="fcontent2" disabled="disabled" name="content" cols="60" rows="20" style="display: none;"></textarea>
+	</p>
+	<p>
+		<input type="submit" value="{$lang.add}!" name="news_add">
+		<label>{$lang.or} <a href="{$url}posts/news/">{$lang.back}</a></label>
+	</p>
+</form>

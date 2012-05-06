@@ -1,0 +1,21 @@
+<h1><a href="{$url}"><img src="{$images}logo.png" alt="LiberumCMS"></a></h1>
+<div id="login">
+	<h2>
+		{$lang.please_login}
+	</h2>
+	{if isset($msg)}{$msg}{/if}
+	<form action="" method="post">
+		<p>
+			<label for="fnick">{$lang.username}: </label>
+			<input type="text" name="nick" id="fnick">
+		</p>
+		<p>
+			<label for="fpass">{$lang.password}: </label>
+			<input type="password" name="pass" id="fpass">
+		</p>
+		<p>
+			<input type="submit" name="login" value="{$lang.login}">
+			<label>{$lang.or} <a href="{$portal_url}">{$lang.back_to_portal}</a></label>
+		</p>
+	</form>
+</div>
